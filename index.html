@@ -47,7 +47,7 @@
           <details class="rounded-xl border border-white/10">
             <summary class="cursor-pointer px-3 py-2">Projekter</summary>
             <div class="p-2 pt-0">
-              <a class="block rounded-lg px-3 py-2 hover:bg白/5" href="/projekter/4-semester.html">4. semester – projekt</a>
+              <a class="block rounded-lg px-3 py-2 hover:bg-white/5" href="/projekter/4-semester.html">4. semester – projekt</a>
               <a class="block rounded-lg px-3 py-2 hover:bg-white/5" href="/projekter/index.html">Alle projekter</a>
             </div>
           </details>
@@ -102,7 +102,7 @@
       <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">Kontakt</h2>
       <p class="mt-2 text-white/75">Skriv en mail, eller connect på LinkedIn.</p>
       <div class="mt-6 flex flex-wrap gap-3">
-        <a class="rounded-2xl bg-white text-neutral-900 px-5 py-3 font-medium hover:bg-white/90" href="mailto:ditnavn@example.com">Send mail</a>
+        <a class="rounded-2xl bg-white text-neutral-900 px-5 py-3 font-medium hover:bg-white/90" href="mailto:Esbenejdesgaard@gmail.com">Send mail</a>
         <a class="rounded-2xl border border-white/20 px-5 py-3 font-medium hover:border-white/40" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
@@ -120,16 +120,50 @@
     const btn = document.getElementById('navBtn');
     const mobile = document.getElementById('mobileNav');
     if(btn){ btn.addEventListener('click', ()=> mobile.classList.toggle('hidden')); }
-    // Desktop projects dropdown
+
+    // Desktop projects dropdown – keep open until click outside
     const pm = document.querySelector('#projectsMenu');
     if(pm){
-      const btn = pm.querySelector('button');
-      const menu = pm.querySelector('div[role="menu"]');
-      let open = false;
-      const set = (v)=>{ open=v; menu.classList.toggle('hidden', !v); btn.setAttribute('aria-expanded', String(v)); };
-      btn.addEventListener('click', ()=> set(!open));
-      pm.addEventListener('mouseleave', ()=> set(false));
+      const toggleBtn = pm.querySelector('button');
+      const menu = pm.querySelector('[role="menu"]');
+
+      const openMenu = ()=>{ menu.classList.remove('hidden'); toggleBtn.setAttribute('aria-expanded','true'); };
+      const closeMenu = ()=>{ menu.classList.add('hidden'); toggleBtn.setAttribute('aria-expanded','false'); };
+
+      // Toggle on button click
+      toggleBtn.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        if(menu.classList.contains('hidden')) openMenu();
+        else closeMenu();
+      });
+
+      // Prevent closing when interacting inside the menu
+      menu.addEventListener('click', (e)=>{ e.stopPropagation(); });
+
+      // Close when clicking anywhere outside
+      document.addEventListener('click', ()=> closeMenu());
+
+      // Keyboard accessibility
+      toggleBtn.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowDown'){
+          e.preventDefault();
+          openMenu();
+          const first = menu.querySelector('a');
+          if(first) first.focus();
+        }
+        if(e.key === 'Escape'){
+          closeMenu();
+          toggleBtn.focus();
+        }
+      });
+      menu.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape'){
+          closeMenu();
+          toggleBtn.focus();
+        }
+      });
     }
+
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
