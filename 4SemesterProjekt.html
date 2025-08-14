@@ -82,7 +82,57 @@
             <h3>Mål for dagen</h3>
             <ul>
               <li></li>
-              <li>bmc.. +++</li>
+              <li>bmc.. +++
+              Backendudvikling & API-design – Start med at researche
+
+Azure Monitor API og Azure Resource Graph
+
+Hvordan man henter CPU-, RAM-, disk- og cost-metrics programmatisk.
+
+Hvordan man filtrerer på inaktive eller overbelastede VM’er direkte i forespørgslen.
+
+Dokumentation: Azure Monitor REST API
+
+Azure Functions med HTTP-trigger
+
+Opret en function, der kan modtage kald og returnere metrics.
+
+Hvordan functions kan køre på en tidsplan (Timer Trigger) for automatisk indsamling.
+
+API-struktur
+
+Hvordan man designer endpoints, så frontenden nemt kan hente data.
+
+Hvordan man returnerer både realtidsdata og historiske data.
+
+Cybersikkerhed – Start med at researche
+
+Microsoft Authentication (Azure AD)
+
+Hvordan man opsætter app registration i Azure AD.
+
+Hvordan OAuth2 Authorization Code flow virker i samspil med API’et.
+
+Bearer token validering i Azure Functions
+
+Hvordan man sikrer, at API’et kræver gyldigt token.
+
+Hvordan man implementerer rollebaseret adgang (RBAC), så fx kun driftsfolk kan stoppe en VM.
+
+Zero Trust-principper
+
+“Verify explicitly” → alle API-kald kræver godkendelse.
+
+“Least privilege” → brugere får kun adgang til de funktioner/data, de har brug for.
+
+💡 Mit forslag til rækkefølge for dig
+
+Start med Azure Monitor API → lav et simpelt script eller function, der henter CPU-forbrug for alle VM’er.
+
+Sæt dig ind i Azure AD app registration → lav et testlogin og hent et token.
+
+Kombinér de to → lav en Azure Function, der kun returnerer metrics, hvis der er gyldigt token.
+</li>
             </ul>
             
           <footer class="mt-4 flex flex-wrap gap-2 text-xs text-white/70">
