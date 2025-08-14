@@ -71,74 +71,78 @@
           </footer>
         </article>
      
-      <!-- Logbog -->
-      <section id="logbog" class="space-y-8">
-          <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="2025-08-14">
-          <header>
-            <h2 class="text-xl font-semibold tracking-tight">14. august 2025</h2>
-            <p class="mt-1 text-white/70">Kickoff · oprettelse af bmc og begyndelse af planlæggelse</p>
-          </header>
-          <div class="mt-4 prose prose-invert max-w-none">
-            <h3>Mål for dagen</h3>
-            <ul>
-              <li></li>
-              <li>bmc.. +++
-              Backendudvikling & API-design – Start med at researche
+<!-- Logbog -->
+<section id="logbog" class="space-y-8">
+  <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="2025-08-14">
+    <header>
+      <h2 class="text-xl font-semibold tracking-tight">14. august 2025</h2>
+      <p class="mt-1 text-white/70">Kickoff · oprettelse af BMC og begyndelse af planlægning</p>
+    </header>
+    <div class="mt-4 prose prose-invert max-w-none">
+      <h3>Mål for dagen</h3>
+      <ul>
+        <li>Udarbejde BMC</li>
+        <li>Planlægge research inden for Backendudvikling &amp; API-design samt Cybersikkerhed</li>
+      </ul>
 
-Azure Monitor API og Azure Resource Graph
+      <h3>Backendudvikling &amp; API-design – research</h3>
+      <ul>
+        <li><strong>Azure Monitor API</strong> og <strong>Azure Resource Graph</strong>
+          <ul>
+            <li>Hente CPU-, RAM-, disk- og cost-metrics programmatisk</li>
+            <li>Filtrere på inaktive eller overbelastede VM’er direkte i forespørgslen</li>
+            <li><a href="https://learn.microsoft.com/rest/api/monitor/" target="_blank">Azure Monitor REST API dokumentation</a></li>
+          </ul>
+        </li>
+        <li><strong>Azure Functions</strong>
+          <ul>
+            <li>Opret HTTP-trigger function til at modtage kald og returnere metrics</li>
+            <li>Opsæt Timer-trigger til automatisk indsamling</li>
+          </ul>
+        </li>
+        <li><strong>API-struktur</strong>
+          <ul>
+            <li>Designe endpoints, så frontenden nemt kan hente data</li>
+            <li>Returnere både realtidsdata og historiske data</li>
+          </ul>
+        </li>
+      </ul>
 
-Hvordan man henter CPU-, RAM-, disk- og cost-metrics programmatisk.
+      <h3>Cybersikkerhed – research</h3>
+      <ul>
+        <li><strong>Microsoft Authentication (Azure AD)</strong>
+          <ul>
+            <li>Opsætte app registration i Azure AD</li>
+            <li>Forstå OAuth2 Authorization Code flow og integration med API’et</li>
+          </ul>
+        </li>
+        <li><strong>Bearer token validering</strong> i Azure Functions
+          <ul>
+            <li>Sikre at API’et kræver gyldigt token</li>
+            <li>Implementere rollebaseret adgang (RBAC) – fx kun driftsfolk kan stoppe en VM</li>
+          </ul>
+        </li>
+        <li><strong>Zero Trust-principper</strong>
+          <ul>
+            <li>“Verify explicitly” → alle API-kald kræver godkendelse</li>
+            <li>“Least privilege” → brugere får kun de nødvendige rettigheder</li>
+          </ul>
+        </li>
+      </ul>
 
-Hvordan man filtrerer på inaktive eller overbelastede VM’er direkte i forespørgslen.
+      <h3>Anbefalet rækkefølge (POC)</h3>
+      <ol>
+        <li>Start med Azure Monitor API → lav et simpelt script eller function, der henter CPU-forbrug for alle VM’er</li>
+        <li>Sæt dig ind i Azure AD app registration → lav et testlogin og hent et token</li>
+        <li>Kombinér de to → lav en Azure Function, der kun returnerer metrics, hvis token er gyldigt</li>
+      </ol>
+    </div>
 
-Dokumentation: Azure Monitor REST API
-
-Azure Functions med HTTP-trigger
-
-Opret en function, der kan modtage kald og returnere metrics.
-
-Hvordan functions kan køre på en tidsplan (Timer Trigger) for automatisk indsamling.
-
-API-struktur
-
-Hvordan man designer endpoints, så frontenden nemt kan hente data.
-
-Hvordan man returnerer både realtidsdata og historiske data.
-
-Cybersikkerhed – Start med at researche
-
-Microsoft Authentication (Azure AD)
-
-Hvordan man opsætter app registration i Azure AD.
-
-Hvordan OAuth2 Authorization Code flow virker i samspil med API’et.
-
-Bearer token validering i Azure Functions
-
-Hvordan man sikrer, at API’et kræver gyldigt token.
-
-Hvordan man implementerer rollebaseret adgang (RBAC), så fx kun driftsfolk kan stoppe en VM.
-
-Zero Trust-principper
-
-“Verify explicitly” → alle API-kald kræver godkendelse.
-
-“Least privilege” → brugere får kun adgang til de funktioner/data, de har brug for.
-
-💡 Mit forslag til rækkefølge for dig
-
-Start med Azure Monitor API → lav et simpelt script eller function, der henter CPU-forbrug for alle VM’er.
-
-Sæt dig ind i Azure AD app registration → lav et testlogin og hent et token.
-
-Kombinér de to → lav en Azure Function, der kun returnerer metrics, hvis der er gyldigt token.
-</li>
-            </ul>
-            
-          <footer class="mt-4 flex flex-wrap gap-2 text-xs text-white/70">
-            <span class="rounded-full border border-white/15 px-2 py-1">note</span>
-          </footer>
-        </article>
+    <footer class="mt-4 flex flex-wrap gap-2 text-xs text-white/70">
+      <span class="rounded-full border border-white/15 px-2 py-1">note</span>
+    </footer>
+  </article>
+</section>
         
         <!-- NY DAGS-SKABELON – KOPIÉR HERFRA
         <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="YYYY-MM-DD">
