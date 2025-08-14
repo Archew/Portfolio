@@ -78,63 +78,61 @@
       <h2 class="text-xl font-semibold tracking-tight">14. august 2025</h2>
       <p class="mt-1 text-white/70">Kickoff · oprettelse af BMC og begyndelse af planlægning</p>
     </header>
+
     <div class="mt-4 prose prose-invert max-w-none">
       <h3>Mål for dagen</h3>
       <ul>
-        <li>Udarbejde BMC</li>
-        <li>Planlægge research inden for Backendudvikling &amp; API-design samt Cybersikkerhed</li>
+        <li>Udarbejde <abbr title="Business Model Canvas">BMC</abbr></li>
+        <li>Planlægge research inden for backendudvikling, API-design og cybersikkerhed</li>
       </ul>
 
-      <h3>Backendudvikling &amp; API-design – research</h3>
+      <h3>Lektier</h3>
+      <p><strong>Backendudvikling &amp; API-design – research</strong></p>
       <ul>
-        <li><strong>Azure Monitor API</strong> og <strong>Azure Resource Graph</strong>
+        <li><a href="https://learn.microsoft.com/rest/api/monitor/" target="_blank" rel="noopener">Azure Monitor API</a> &amp; Azure Resource Graph
           <ul>
             <li>Hente CPU-, RAM-, disk- og cost-metrics programmatisk</li>
             <li>Filtrere på inaktive eller overbelastede VM’er direkte i forespørgslen</li>
-            <li><a href="https://learn.microsoft.com/rest/api/monitor/" target="_blank">Azure Monitor REST API dokumentation</a></li>
           </ul>
         </li>
-        <li><strong>Azure Functions</strong>
+        <li>Azure Functions
           <ul>
-            <li>Opret HTTP-trigger function til at modtage kald og returnere metrics</li>
-            <li>Opsæt Timer-trigger til automatisk indsamling</li>
+            <li>HTTP-trigger → modtage kald og returnere metrics</li>
+            <li>Timer-trigger → automatisk indsamling</li>
           </ul>
         </li>
-        <li><strong>API-struktur</strong>
+        <li>API-struktur
           <ul>
-            <li>Designe endpoints, så frontenden nemt kan hente data</li>
-            <li>Returnere både realtidsdata og historiske data</li>
+            <li>Design endpoints til frontend</li>
+            <li>Returnér både realtidsdata og historiske data</li>
           </ul>
         </li>
       </ul>
 
-      <h3>Cybersikkerhed – research</h3>
+      <p><strong>Cybersikkerhed – research</strong></p>
       <ul>
-        <li><strong>Microsoft Authentication (Azure AD)</strong>
+        <li>Microsoft Authentication (Azure AD)
           <ul>
-            <li>Opsætte app registration i Azure AD</li>
-            <li>Forstå OAuth2 Authorization Code flow og integration med API’et</li>
+            <li>App registration og OAuth2 Authorization Code flow</li>
           </ul>
         </li>
-        <li><strong>Bearer token validering</strong> i Azure Functions
+        <li>Bearer token validering i Azure Functions
           <ul>
-            <li>Sikre at API’et kræver gyldigt token</li>
-            <li>Implementere rollebaseret adgang (RBAC) – fx kun driftsfolk kan stoppe en VM</li>
+            <li>Kræv gyldigt token og implementér RBAC</li>
           </ul>
         </li>
-        <li><strong>Zero Trust-principper</strong>
+        <li>Zero Trust-principper
           <ul>
-            <li>“Verify explicitly” → alle API-kald kræver godkendelse</li>
-            <li>“Least privilege” → brugere får kun de nødvendige rettigheder</li>
+            <li>Verify explicitly &amp; Least privilege</li>
           </ul>
         </li>
       </ul>
 
-      <h3>Anbefalet rækkefølge (POC)</h3>
+      <p><strong>Anbefalet rækkefølge (POC)</strong></p>
       <ol>
-        <li>Start med Azure Monitor API → lav et simpelt script eller function, der henter CPU-forbrug for alle VM’er</li>
-        <li>Sæt dig ind i Azure AD app registration → lav et testlogin og hent et token</li>
-        <li>Kombinér de to → lav en Azure Function, der kun returnerer metrics, hvis token er gyldigt</li>
+        <li>Lav en function/script der henter CPU-data via Azure Monitor API</li>
+        <li>Opsæt Azure AD app registration og hent token</li>
+        <li>Kombinér → Azure Function der kun returnerer metrics med gyldigt token</li>
       </ol>
     </div>
 
