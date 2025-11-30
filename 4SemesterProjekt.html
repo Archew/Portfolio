@@ -52,59 +52,25 @@
         </div>
       </aside>
 
-<article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="projektbeskrivelse">
-  <header>
-    <h2 class="text-xl font-semibold tracking-tight">Projektbeskrivelse – 4. semester</h2>
-    <p class="mt-1 text-white/70">Overblik over projektets formål, teknologi og læringsmål</p>
-  </header>
+          <!-- Logbog -->
+      <section id="logbog" class="space-y-8">
+          <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="2025-08-12">
+          <header>
+            <h2 class="text-xl font-semibold tracking-tight">12. august 2025</h2>
+            <p class="mt-1 text-white/70">Kickoff · Oprettelse af notesblok</p>
+          </header>
+          <div class="mt-4 prose prose-invert max-w-none">
+            <h3>Mål og opnået</h3>
+            <ul>
+              <li></li>
+              <li>Dannet en side til at notere omkring 4. semester</li>
+            </ul>
+            
+          <footer class="mt-4 flex flex-wrap gap-2 text-xs text-white/70">
+            <span class="rounded-full border border-white/15 px-2 py-1">note</span>
+          </footer>
+        </article>
 
-  <div class="mt-4 prose prose-invert max-w-none">
-    
-    <h3>Projektets formål</h3>
-    <p>
-      Norlys ønsker et bedre overblik over ældre, inaktive eller belastede virtuelle maskiner i deres Azure-tenant,
-      for at identificere hvilke VM’er der bør skaleres op eller ned, stoppes eller fjernes. Målet er at optimere
-      driften og reducere unødvendige omkostninger gennem bedre ressourceudnyttelse.
-    </p>
-    <p>
-      I samarbejde med Norlys udvikler vi et webbaseret dashboard, der giver overblik over deres virtuelle maskiner i Azure.
-      Systemet skal visualisere ressourceforbrug, belastning og potentielle fejlscenarier, samt kunne sende automatiske alerts
-      til relevante medarbejdere ved uventede hændelser – f.eks. unormalt højt RAM-forbrug, nedbrud eller generelle afvigelser.
-    </p>
-    <p>
-      Designet tager inspiration fra løsninger som Spotify Backstage og ServiceNow. Teknologivalgene er cloud-native baseret:
-      Azure Functions og Azure Container Apps foreslås til backend og frontend, mens Microsoft Authentication (MSAL) bruges til login.
-      Norlys nævner også brugen af Bicep til at definere og versionere infrastrukturen som kode.
-    </p>
-
-    <h3>Teknologi og anvendelse af valgfag</h3>
-
-    <h4>UI/UX</h4>
-    <p>
-      Vi fokuserer på at skabe en intuitiv, effektiv og brugervenlig oplevelse. Der udarbejdes wireframes og mockups, som
-      danner grundlag for frontend-udviklingen. Vi anvender principper fra brugercentreret design og inddrager løbende Norlys
-      for at sikre, at løsningen matcher deres arbejdsgange. Der arbejdes med kontrast, læsbarhed og visuel konsistens
-      – inspireret af Spotify Backstage og ServiceNow.
-    </p>
-
-    <h4>Webudvikling & frontend-teknologier</h4>
-    <p>
-      Frontenden bygges i React med komponentbaseret arkitektur. Der arbejdes med performanceoptimering, state-håndtering
-      og responsive principper. Autentifikation håndteres via Microsoft Authentication (Azure AD), så vi kan integrere direkte
-      med virksomhedens brugerstyring.
-    </p>
-    <p>
-      Der arbejdes med CSR vs. SSR for at vurdere den mest optimale hosting-strategi i Azure. Frontenden deployes via Azure Container Apps.
-    </p>
-
-    <h4>Backend-udvikling og API-design</h4>
-    <p>
-      Backend’en udvikles i Azure Functions som en serverless, event-baseret arkitektur. Den behandler data fra Azure Monitor
-      og udløser automatiske handlinger såsom alerts. Vi undersøger API-design, autorisation via OAuth2 og tokenhåndtering, samt
-      hvordan alerts bedst kan sendes som notifikationer via e-mail, push eller webhooks.
-    </p>
-    <p>
-      CI/CD-pipelines benyttes til at bygge og dep
 
       
       <!-- Logbog -->
