@@ -115,58 +115,119 @@
           </div>
         </article>
 
-        <!-- ENTRY 3: PROJEKTBESKRIVELSE -->
         <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="projektbeskrivelse">
-          <header>
-            <h2 class="text-xl font-semibold tracking-tight">Projektbeskrivelse</h2>
-            <p class="mt-1 text-white/70">Overordnet formål, teknologi og læringsfokus</p>
-          </header>
+  <header>
+    <h2 class="text-xl font-semibold tracking-tight">Projektbeskrivelse</h2>
+    <p class="mt-1 text-white/70">Overordnet formål, teknologi og læringsfokus</p>
+  </header>
 
-          <div class="mt-4 prose prose-invert max-w-none">
+  <div class="mt-4 prose prose-invert max-w-none">
 
-            <h3>PROJEKTBESKRIVELSE – 4. SEMESTER</h3>
+    <h3 class="text-2xl font-bold">PROJEKTBESKRIVELSE – 4. SEMESTER</h3>
 
-            <h3>PROJEKTETS FORMÅL</h3>
-            <p>Norlys ønsker et bedre overblik over ældre og inaktive eller belastede virtuelle maskiner i deres Azure tenant,
-              så de kan identificere hvilke virtuelle maskiner der bør skaleres op eller ned, stoppes eller fjernes. Målet er
-              at optimere driften og reducere unødvendige omkostninger gennem bedre udnyttelse af ressourcer.</p>
+    <!-- FORMÅL -->
+    <h3 class="mt-8 text-xl font-semibold">PROJEKTETS FORMÅL</h3>
 
-            <p>I samarbejde med Norlys vil vi udvikle et webbaseret dashboard der giver overblik over deres virtuelle maskiner i Azure.
-              Formålet er at skabe overblik over forbruget, belastning og potentielle fejlscenarier, samt at sende automatiske alerts
-              til relevante medarbejdere ved uventede hændelser, for eksempel unormalt højt RAM-forbrug, nedbrud eller afvigelser i ressourceforbrug.</p>
+    <p>
+      Norlys ønsker et bedre overblik over ældre og inaktive eller belastede virtuelle maskiner i deres Azure tenant,
+      så de kan identificere hvilke virtuelle maskiner der bør skaleres op eller ned, stoppes eller fjernes.
+      Målet er at optimere driften og reducere unødvendige omkostninger gennem bedre udnyttelse af ressourcer.
+    </p>
 
-            <p>Norlys ønsker en løsning inspireret af Spotify Backstage og ServiceNow og vil anvende Azure Functions,
-              Azure Container Apps og MS Authentication. Desuden anvendes Bicep til IaC.</p>
+    <p>
+      I samarbejde med Norlys vil vi udvikle et webbaseret dashboard der giver overblik over deres virtuelle maskiner i Azure.
+      Formålet er at skabe overblik over forbruget, belastning og potentielle fejlscenarier, samt at sende automatiske alerts
+      til relevante medarbejdere ved uventede hændelser, for eksempel unormalt højt RAM-forbrug, nedbrud eller afvigelser i forventede ressourceforbrug.
+    </p>
 
-            <hr class="my-8 border-white/20" />
+    <p>
+      Norlys har efterspurgt en løsning, hvor design trækker inspiration fra Spotify Backstage og ServiceNow
+      og udnytter moderne cloud-native teknologier. De har foreslået at anvende Azure Functions og Azure Container Apps
+      til backend og frontend, samt Microsoft Authentication (MS Auth) til login. Desuden nævnte de brug af Bicep som værktøj
+      til at definere og versionere infrastrukturen som kode.
+    </p>
 
-            <h3>TEKNOLOGI OG ANVENDELSE AF VALGFAG</h3>
+    <hr class="my-10 border-white/20" />
 
-            <h4>UI/UX</h4>
-            <p>I projektet arbejder vi på at optimere brugeroplevelsen…</p>
+    <!-- TEKNOLOGI OG VALGFAG -->
+    <h3 class="text-xl font-semibold">TEKNOLOGI OG ANVENDELSE AF VALGFAG</h3>
 
-            <h4>Frontend (React)</h4>
-            <p>React, komponentbaseret, MSAL, CSR/SSR, Container Apps…</p>
+    <h4 class="mt-6 text-lg font-semibold">UI/UX</h4>
+    <p>
+      I projektet arbejder vi på at optimere brugeroplevelsen, så det bliver let at navigere og hurtigt giver et ønsket overblik
+      og relevant information. Vi udarbejder wireframes og mockups, som skal give grundlaget for frontend-udviklingen.
+      Vi anvender principper fra brugercentreret design, hvor vi løbende inddrager virksomheden for at sikre,
+      at løsningen matcher deres ønsker og arbejdsgange.
+    </p>
+    <p>
+      Der lægges vægt på intuitiv og effektiv brug. Designet skal understøtte dette gennem kontrast, læsbarhed og visuel konsistens
+      med inspiration fra løsninger som Spotify Backstage og ServiceNow.
+    </p>
 
-            <h4>Backend & API-design</h4>
-            <p>Azure Functions, serverless, triggers, CI/CD, alerts…</p>
+    <h4 class="mt-6 text-lg font-semibold">WEBUDVIKLING & FRONTEND-TEKNOLOGIER</h4>
+    <p>
+      Vi bruger React til at udvikle en moderne og brugervenlig grænseflade. Der anvendes komponentbaseret arkitektur,
+      og vi fokuserer på performanceoptimering og responsive designprincipper. Autentificering håndteres via Microsoft Authentication (Azure AD),
+      som gør det muligt at beskytte systemet med virksomhedens eksisterende brugerkonti.
+    </p>
+    <p>
+      Der arbejdes med begreber som CSR vs. SSR, især i forhold til hvordan løsningen bedst hostes i Azure.
+      Frontenden deployes via Azure Container Apps, og der undersøges hvordan dette påvirker indlæsningstider og brugeroplevelse.
+    </p>
 
-            <h4>Cyber Security</h4>
-            <p>OAuth2, AD, Zero Trust, RBAC, logning, GDPR…</p>
+    <h4 class="mt-6 text-lg font-semibold">BACKEND-UDVIKLING OG API-DESIGN</h4>
+    <p>
+      Backend’en udvikles med Azure Functions i en serverless og event-baseret arkitektur, som reagerer på målinger
+      og triggers fra Azure Monitor. Den evaluerer data og udløser automatiske handlinger som fx alerts.
+      Vi undersøger brug af API-design, autorisering (OAuth2 + tokens), samt hvordan alerts bedst sendes som notifikationer
+      via e-mail, push-notifikationer eller webhook-integrationer.
+    </p>
+    <p>
+      CI/CD-pipelines anvendes til automatisk at bygge og udrulle backend-koden, så funktionalitet løbende kan testes og opdateres.
+    </p>
 
-            <h4>Scripting & Automation</h4>
-            <p>PowerShell, Bash, IaC med Bicep…</p>
+    <h4 class="mt-6 text-lg font-semibold">CYBER SECURITY</h4>
+    <p>
+      Vi arbejder med OAuth2-flow og adgangsstyring via Azure AD. Dette sikrer, at kun autoriserede brugere kan tilgå systemet
+      og se sensitive data. Vi undersøger principper fra Zero Trust Architecture, og implementerer ”Least Privilege”
+      og betinget adgang til API’er og cloud-services.
+    </p>
+    <p>
+      Derudover forholder vi os til GDPR, logning, overvågning og beskyttelse af potentielt følsomme data.
+    </p>
 
-            <h4>Appudvikling</h4>
-            <p>Mulighed for companion mobil-app…</p>
+    <h4 class="mt-6 text-lg font-semibold">AUTOMATISERING OG SCRIPTING</h4>
+    <p>
+      Projektet forventes også at inddrage scripting — fx til automatiseret dataindsamling fra Azure Monitor
+      eller oprettelse af testdata. Dette kan ske via PowerShell, Bash eller Python.
+    </p>
+    <p>
+      Vi anvender Infrastructure as Code (IaC) via Bicep, hvor hele projektets Azure-infrastruktur defineres som kode.
+      Dette gør det nemt at reproducere, ændre og versionere opsætningen.
+    </p>
 
-            <hr class="my-8 border-white/20" />
+    <h4 class="mt-6 text-lg font-semibold">APPUDVIKLING</h4>
+    <p>
+      Et teammedlem med appudvikling som valgfag har mulighed for at udvikle en mobil companion app.
+      Appen kan vise alerts og sende push-notifikationer direkte til brugeren — som et supplement til dashboardet.
+    </p>
 
-            <h3>LÆRINGSMÅL OG FOKUS</h3>
-            <p>Projektet giver mulighed for at lære Azure Functions, Bicep, OAuth2, CI/CD osv…</p>
+    <hr class="my-10 border-white/20" />
 
-          </div>
-        </article>
+    <!-- LÆRINGSMÅL -->
+    <h3 class="text-xl font-semibold">LÆRINGSMÅL OG FOKUS</h3>
+    <p>
+      Projektet giver mulighed for at lære og arbejde med teknologier som Azure Functions, Bicep, OAuth2-flow,
+      cloud-deployment og sikkerhedsprincipper. Derudover giver projektet erfaring med CI/CD, frontendoptimering,
+      monitoreringsstrategier, API-design og integration mellem cloud-services.
+    </p>
+    <p>
+      Vi prioriterer virkelighedsnære løsninger, tæt dialog med virksomheden og løbende validering af funktionalitet og brugeroplevelse.
+    </p>
+
+  </div>
+</article>
+
 
         <!-- ENTRY 4: MOTIVATION OG FREMDRIFT -->
         <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="motivation-fremdrift">
