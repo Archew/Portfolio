@@ -146,7 +146,7 @@
       <section id="logbog" class="space-y-8">
           <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="2025-08-12">
           <header>
-            <h2 class="text-xl font-semibold tracking-tight">12. august 2025</h2>
+            <h2 class="text-xl font-semibold tracking-tight">Projektbeskrivelse</h2>
             <p class="mt-1 text-white/70"> Projektbeskrivelse </p>
           </header>
           <div class="mt-4 prose prose-invert max-w-none">
@@ -156,7 +156,38 @@
       Norlys ønsker et bedre overblik over ældre, inaktive eller belastede virtuelle maskiner i deres Azure-tenant,
       så de kan identificere hvilke virtuelle maskiner der bør skaleres op eller ned, stoppes eller fjernes.
       Målet er at optimere driften og reducere unødvendige omkostninger gennem bedre udnyttelse af ressourcer.
-    </p>
+            </p>
+
+            <p>I samarbejde med Norlys vil vi udvikle et webbaseret dashboard der giver overblik over deres virtuelle maskiner i Azure. Formålet er at skabe overblik over forbruget, belastning og potentielle fejlscenarier, samt at sende automatiske alerts til relevante medarbejdere ved uventede hændelser, for eksempel unormalt højt ram forbrug, nedbrud eller afvigelser i forventede ressourceforbrug.</p>
+            <p>Norlys har efterspurgt en løsning, Hvor design trækker inspiration fra Spotify Backstage/Servicenow  og udnytter moderne cloud-native teknologier. De har foreslået at anvende Azure Functions og Azure Container Apps til backend og frontend, samt Microsoft Authentication (MS Auth) til login. Desuden nævnte de brug af Bicep som værktøj til at definere og versionere infrastrukturen som kode.</p>
+            
+            <h3>UI/UX</h3>
+            <p>I projektet arbejder vi på at optimere brugeroplevelsen, så det bliver let at navigere og hurtigt giver et ønskede overblik og relevant information. 
+Vi udarbejder wireframes og mockups, som skal give grundlaget for frontend udviklingen. Vi anvender principper fra brugercentreret design, hvor vi løbende inddrage virksomheden for at sikre at løsningen matcher deres ønsker og arbejdsgange.
+Der ligges vægt på brugen er intuitiv og effektiv. At designet understøtter dette gennem kontrast, læsbarhed og visuel konsistent, med inspiration fra løsninger som spotify backstage og ServiceNow.
+</p>
+            <h3>Webudvikling & frontend teknologier</h3>
+            <p>Vi bruger React til at udvikle en enkel, moderne og brugervenlig brugergrænseflade. Der anvendes komponentbaseret arkitektur og vi fokuserer på performance-optimering og responsive designprincipper. Autentificering håndteres via Microsoft Authentication (Azure AD), som gør det muligt at beskytte systemet med virksomhedens eksisterende brugerkonti.
+Der arbejdes med begreber som CSR vs. SSR, især i forhold til hvordan løsningen bedst hostes i Azure. Frontenden deployes via Azure Container Apps, og vi undersøger hvordan det påvirker indlæsningstider og brugeroplevelse.
+</p>
+            <h3>Backend-udvikling og api-design</h3>
+            <p>Backend’en udvikles med Azure Functions i en serverless og event-baseret arkitektur, som reagerer på målinger og triggers fra Azure Monitor. Den evaluerer data og udløser automatiske handlinger som fx alerts. Vi undersøger brug af API-design, autorisering (OAuth2 + tokens), samt hvordan alerts bedst kan sendes som notifikationer via fx e-mail, push-notifikationer eller webhook-integrationer.
+CI/CD-pipelines bruges til automatisk at bygge og udrulle koden, så systemet nemt kan testes og opdateres. 
+</p>
+            <h3>Cyber Security</h3>
+            <p>Vi arbejder med OAuth2-flow og adgangsstyring via Azure AD. Dette sikrer, at kun autoriserede brugere kan se og reagere på data. Vi forventer at undersøge principper fra Zero Trust Architecture, samt sikre vores API’er og cloud-deployments mod uautoriseret adgang.
+Derudover forholder vi os til GDPR, logning og beskyttelse af eventuelle personfølsomme data.
+</p>
+            <h3>Automatisering og scripting</h3>
+            <p>Projektet forventes også at inddrage scripting – fx til automatiseret dataindsamling fra Azure Monitor eller oprettelse af testdata. Dette kan ske via PowerShell, Bash eller Python.
+Desuden anvendes Infrastructure as Code (IaC), hvor vi med Bicep definerer hele den nødvendige Azure-infrastruktur (fx hvilke container apps og functions der skal oprettes, og hvordan de skal forbindes). Dette gør det nemt at reproducere og vedligeholde opsætningen.
+</p>
+            <h3>Appudvikling</h3>
+            <p>Der er mulighed for, at et teammedlem med appudvikling som valgfag udvikler en enkel mobil companion app. Denne app kan give overblik over aktuelle alerts og sende push-notifikationer direkte til brugeren. Appen vil fungere som et supplement til det webbaserede dashboard og give virksomheden øget fleksibilitet.</p>
+            <h3>Læringsmål og Fokus</h3>
+            <p>Projektet giver mulighed for at lære og anvende flere teknologier, vi endnu ikke mestrer, bl.a. Azure Functions, Bicep, OAuth2-flow, samt cloud-deployment og sikkerhedsprincipper. Det giver også mulighed for at arbejde med CI/CD, frontendoptimering, og monitoreringsstrategier.
+Vi prioriterer virkelighedsnære løsninger, løbende samarbejde med virksomheden og en løbende validering af funktionalitet og brugeroplevelse.
+</p>
             
             <ul>
               <li></li>
