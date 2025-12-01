@@ -229,6 +229,212 @@
   </div>
 </article>
 
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="pre-uge-37">
+  <header>
+    <h2 class="text-xl font-semibold tracking-tight">Før uge 37</h2>
+    <p class="mt-1 text-white/70">Forberedelse og rammesætningsfase</p>
+  </header>
+
+  <div class="mt-4 prose prose-invert max-w-none">
+
+    <p>
+      I projektets opstart mødtes gruppen og fandt en PO hos Norlys, som ønskede et moderne dashboard til at skabe overblik
+      over ældre, inaktive eller belastede virtuelle maskiner i deres Azure-tenant. Formålet var at identificere hvilke VM’er
+      der burde skaleres op eller ned, stoppes eller fjernes, så Norlys kunne optimere drift og reducere unødvendige omkostninger.
+    </p>
+
+    <p>
+      I samarbejde med PO’en blev målet at udvikle et webbaseret dashboard, der kunne visualisere ressourceforbrug, belastning,
+      status og potentielle fejlscenarier – samt sende automatiske alerts ved uventede hændelser som højt RAM-forbrug, nedbrud
+      eller andre afvigelser.
+    </p>
+
+    <p>
+      Norlys foreslog, at løsningen skulle tage inspiration fra Spotify Backstage og ServiceNow og anvende moderne cloud-native
+      teknologier som Azure Functions, Azure Container Apps og Microsoft Authentication (MSAL). Derudover nævnte de
+      Infrastructure as Code via Bicep.
+    </p>
+
+    <h3 class="mt-6">Forberedende arbejde</h3>
+    <ul>
+      <li>Business Model Canvas</li>
+      <li>Use cases</li>
+      <li>Klassediagrammer</li>
+      <li>Komponentdiagram (samlet arkitektur og databevægelser)</li>
+    </ul>
+
+    <p>
+      Vi aftalte interne møder hver torsdag og PO-møder cirka hver tredje uge. Gruppen var enige om, at projektet krævede
+      en solid forståelsesmæssig base, så de første uger blev dedikeret til research.
+    </p>
+
+    <p>
+      Et Trello-board blev oprettet, hvorefter researchfasen begyndte.
+    </p>
+
+  </div>
+</article>
+
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="uge-37-40">
+  <header>
+    <h2 class="text-xl font-semibold tracking-tight">Uge 37–40</h2>
+    <p class="mt-1 text-white/70">Individuel research og teknisk opbygning</p>
+  </header>
+
+  <div class="mt-4 prose prose-invert max-w-none">
+
+    <p>
+      I uge 37–40 fokuserede jeg på at opbygge den nødvendige tekniske forståelse, før backend-udviklingen kunne begynde.
+      Vi havde arbejdet minimalt med Azure på 3. semester, men Azure Functions, Azure Monitor, Clean Architecture i praksis,
+      Azure AD og sikkerhed var nye områder for mig.
+    </p>
+
+    <p>
+      Denne fase var centreret omkring at forstå de teknologier, som projektet skulle bygges på — før der blev skrevet kode.
+    </p>
+
+    <h3 class="mt-6">Azure Monitor, Resource Graph og Log Analytics</h3>
+    <ul>
+      <li>Azure Monitor API</li>
+      <li>Azure Resource Graph</li>
+      <li>Log Analytics Workspace</li>
+    </ul>
+
+    <p>Jeg lærte forskellen mellem:</p>
+    <ul>
+      <li>Metrics (CPU, RAM, Disk IO)</li>
+      <li>Logs (Heartbeat, Perf)</li>
+      <li>Resource Graph (inventar & metadata)</li>
+    </ul>
+
+    <h3 class="mt-6">KQL og Heartbeat/Perf</h3>
+    <ul>
+      <li>Heartbeat – online/offline status</li>
+      <li>Perf – CPU-, RAM-, diskperformance</li>
+      <li>InsightsMetrics – avancerede målinger</li>
+    </ul>
+
+    <p>KQL-tests jeg lavede:</p>
+    <ul>
+      <li><code>Heartbeat | summarize LastSeen=max(TimeGenerated) by Computer</code></li>
+      <li><code>Perf | where CounterName == "CPU Utilization"</code></li>
+      <li>Joins mellem Perf og Heartbeat</li>
+    </ul>
+
+    <h3 class="mt-6">Azure AD & sikkerhed</h3>
+    <ul>
+      <li>App registrations</li>
+      <li>OAuth2 Authorization Code Flow</li>
+      <li>Token-flow (frontend → backend)</li>
+      <li>Scopes, audience, tenant/client ID</li>
+      <li>RBAC (Monitor Reader)</li>
+      <li>Managed Identity vs. Service Principal</li>
+    </ul>
+
+    <h3 class="mt-6">Clean Architecture-forståelse</h3>
+    <ul>
+      <li>Domain</li>
+      <li>Application</li>
+      <li>Infrastructure</li>
+      <li>Functions (API)</li>
+    </ul>
+
+  </div>
+</article>
+
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="uge-41-44">
+  <header>
+    <h2 class="text-xl font-semibold tracking-tight">Uge 41–44</h2>
+    <p class="mt-1 text-white/70">Backend v1 – første implementering</p>
+  </header>
+
+  <div class="mt-4 prose prose-invert max-w-none">
+
+    <p>
+      I uge 41 begyndte jeg for første gang at skrive backend-kode. Teori blev til praksis, men perioden viste sig udfordrende.
+    </p>
+
+    <h3 class="mt-6">Fokusområder</h3>
+    <ul>
+      <li>Oprettelse af Azure Functions løsning</li>
+      <li>Opsætning af Clean Architecture lagene</li>
+      <li>Første API-endpoints (/metrics)</li>
+      <li>Opsætning af local.settings.json</li>
+      <li>Integration mod Azure Monitor</li>
+      <li>Test af MSAL token-flow</li>
+    </ul>
+
+    <h3 class="mt-6">Udfordringer i Backend v1</h3>
+    <ul>
+      <li>Token-flow fejl (401/403)</li>
+      <li>Forkert scope-konfiguration</li>
+      <li>Konflikt mellem Managed Identity og Service Principal</li>
+      <li>Lagene var ikke bundet korrekt sammen</li>
+      <li>Monitor-endpoints blev ikke ramt rigtigt</li>
+      <li>Manglende arbejdsfordeling mellem mig og Pascal</li>
+    </ul>
+
+    <p>
+      I uge 44 stod det klart, at backend v1 havde fundamentale strukturelle problemer, som ikke kunne reddes uden en ny tilgang.
+    </p>
+
+  </div>
+</article>
+
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="uge-45-47">
+  <header>
+    <h2 class="text-xl font-semibold tracking-tight">Uge 45–47</h2>
+    <p class="mt-1 text-white/70">Backend v2 og onboarding</p>
+  </header>
+
+  <div class="mt-4 prose prose-invert max-w-none">
+
+    <p>
+      Den 4. november (uge 45) blev jeg inviteret ind i Backend v2, som Markus havde opbygget for at løse problemerne
+      i backend v1.
+    </p>
+
+    <h3 class="mt-6">Min rolle i backend v2</h3>
+    <ul>
+      <li>Forståelse af den nye, simple arkitektur</li>
+      <li>Arbejdet videre på metrics-endpoints</li>
+      <li>Test af pipeline: frontend → backend-v2 → Azure Monitor</li>
+      <li>Validering af scopes og token-flow</li>
+      <li>Sikring af korrekt API base URL</li>
+    </ul>
+
+    <h3 class="mt-6">Backend v2 bestod af</h3>
+    <ul>
+      <li>Simpelt og stabilt MetricsController</li>
+      <li>Korrekt Azure AD scope-konfiguration</li>
+      <li>Rigtig monitor-data retur</li>
+      <li>Færre lag, mindre kompleksitet</li>
+    </ul>
+
+  </div>
+</article>
+
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="2025-11-19">
+  <header>
+    <h2 class="text-xl font-semibold tracking-tight">19. november 2025</h2>
+    <p class="mt-1 text-white/70">Skift i fokus – dokumentation og portefølje</p>
+  </header>
+
+  <div class="mt-4 prose prose-invert max-w-none">
+
+    <p>
+      Fra weekenden i uge 47 (19. november) skiftede gruppen fokus fra udvikling til dokumentation, projektbeskrivelse
+      og opbygning af porteføljen.
+    </p>
+
+    <p>
+      Backend v2 var funktionel og vi havde nået et MVP. Resten af projektperioden gik med at samle alt arbejde,
+      skrive refleksioner og dokumentere den tekniske løsning.
+    </p>
+
+  </div>
+</article>
+
 
         <!-- ENTRY 4: MOTIVATION OG FREMDRIFT -->
         <article class="rounded-3xl border border-white/10 bg-white/5 p-5" id="motivation-fremdrift">
